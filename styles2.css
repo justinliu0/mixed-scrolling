@@ -1,0 +1,57 @@
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
+  margin: 0; 
+  padding: 0;
+}
+body {
+  font-family: sans-serif;
+  color: #fff;
+}
+
+/* Vertical sections are 100vh each */
+.vert-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Horizontal container:
+   - Enough total height to accommodate the horizontal scroll
+   - We’ll compute and set this with JS
+*/
+.horizontal-container {
+  position: relative;
+  /* We give it some default so it won't collapse before JS runs */
+  min-height: 100vh;
+  overflow: visible; /* let normal scroll happen in document */
+}
+
+/* This element is sticky and stays pinned while we scroll. */
+.container-sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  height: 100vh; /* pinned view */
+  overflow: hidden; /* hide the horizontal overflow */
+}
+
+/* The wide wrapper that scrolls horizontally */
+.horizontal-wrapper {
+  display: flex;
+  height: 100%;
+  width: calc(100vw * 3); /* for 3 horizontal sections */
+  /* No transition for immediate response, or you can add a subtle transform transition if desired */
+}
+
+/* Each horizontal section is 100% of viewport width */
+.h-section {
+  flex: 0 0 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3em;
+}
+
